@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data (replace this with your actual data)
+smoking_habits = [10, 5, 20, 8, 15]  # Example: number of cigarettes smoked per day
+lung_cancer_rates = [200, 100, 250, 150, 180]  # Example: incidence of lung cancer per 100,000 individuals
+
+# Calculate correlation coefficient
+correlation_coefficient = np.corrcoef(smoking_habits, lung_cancer_rates)[0, 1]
+
+print("Correlation coefficient between smoking habits and lung cancer rates:", correlation_coefficient) # Create scatter plot
+plt.scatter(smoking_habits, lung_cancer_rates)
+plt.title("Relationship between Smoking Habits and Lung Cancer Rates")
+plt.xlabel("Smoking Habits")
+plt.ylabel("Lung Cancer Rates")
+
+plt.show()
