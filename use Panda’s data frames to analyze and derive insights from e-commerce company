@@ -1,0 +1,26 @@
+import pandas as pd
+
+# Load the dataset into a pandas DataFrame
+data = {
+    'OrderID': [1, 2, 3, 4, 5],
+    'CustomerID': [101, 102, 103, 104, 105],
+    'ProductID': [201, 202, 203, 204, 205],
+    'Quantity': [2, 1, 3, 2, 1],
+    'TotalPrice': [20.99, 15.50, 35.75, 25.98, 10.25]
+}
+
+df = pd.DataFrame(data)
+
+# Display the first few rows of the DataFrame
+print(df.head())
+total_sales = df['TotalPrice'].sum()
+print("Total sales:", total_sales)
+average_order_value = df['TotalPrice'].mean()
+print("Average order value:", average_order_value)
+popular_products = df.groupby('ProductID')['Quantity'].sum().sort_values(ascending=False).head()
+print("Most popular products:")
+print(popular_products)
+highest_spending_customer = df.groupby('CustomerID')['TotalPrice'].sum().idxmax()
+total_spending = df.groupby('CustomerID')['TotalPrice'].sum().max()
+print("Customer with the highest total spending:", highest_spending_customer)
+print("Total spending:", total_spending)
