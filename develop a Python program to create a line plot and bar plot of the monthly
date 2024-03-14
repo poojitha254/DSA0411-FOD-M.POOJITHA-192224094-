@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+
+# Sample data
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+sales = [10000, 12000, 15000, 18000, 20000, 22000, 25000, 23000, 21000, 19000, 16000, 13000]  # Sample sales data
+plt.plot(months, sales, marker='o', color='b', linestyle='-')
+plt.title('Monthly Sales')
+plt.xlabel('Month')
+plt.ylabel('Sales ($)')
+plt.show()
+plt.bar(months, sales, color='b')
+plt.title('Monthly Sales')
+plt.xlabel('Month')
+plt.ylabel('Sales ($)')
+plt.show()
