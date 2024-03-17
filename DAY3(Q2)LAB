@@ -1,0 +1,12 @@
+import numpy as np
+
+# Sample recovery times data (replace this with your actual data)
+recovery_times = [5, 7, 10, 12, 15, 18, 20, 22, 25, 30, 35, 40, 45, 50]
+
+# Calculate percentiles
+percentiles = np.percentile(recovery_times, [10, 50, 90])
+
+# Print the results
+print("10th percentile:", percentiles[0])
+print("50th percentile (median):", percentiles[1])
+print("90th percentile:", percentiles[2])
