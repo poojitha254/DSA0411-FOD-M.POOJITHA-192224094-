@@ -1,0 +1,59 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from scipy import stats
+
+# Create a DataFrame with age and %fat data
+data = {
+    'age': [23, 23, 26.5, 52, 54, 27, 28.8, 27, 54, 56, 7.8, 17.8, 31.4, 57, 41, 25.9, 58, 47, 27.4, 49, 50, 31.2, 27.2, 61, 60, 58],
+    '%fat': [9.5, 34.6, 42.5, 27, 28.8, 7.8, 17.8, 31.4, 57, 41, 25.9, 58, 47, 27.4, 49, 50, 31.2, 27.2]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate mean, median, and standard deviation
+mean_values = df.mean()
+median_values = df.median()
+std_values = df.std()
+
+print("Mean values:")
+print(mean_values)
+print("\nMedian values:")
+print(median_values)
+print("\nStandard deviation values:")
+print(std_values)
+
+# Draw boxplots
+plt.figure(figsize=(10, 6))
+plt.subplot(1, 2, 1)
+sns.boxplot(x='age', data=df)
+plt.title('Boxplot of Age')
+plt.subplot(1, 2, 2)
+sns.boxplot(x='%fat', data=df)
+plt.title('Boxplot of %Fat')
+plt.tight_layout()
+plt.show()
+
+# Draw scatter plot
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x='age', y='%fat', data=df)
+plt.title('Scatter Plot of Age vs %Fat')
+plt.xlabel('Age')
+plt.ylabel('%Fat')
+plt.show()
+
+# Draw q-q plot
+plt.figure(figsize=(8, 6))
+stats.probplot(df['age'], dist="norm", plot=plt)
+plt.title('Q-Q Plot of Age')
+plt.xlabel('Theoretical Quantiles')
+plt.ylabel('Ordered Values')
+plt.show()
+
+plt.figure(figsize=(8, 6))
+stats.probplot(df['%fat'], dist="norm", plot=plt)
+plt.title('Q-Q Plot of %Fat')
+plt.xlabel('Theoretical Quantiles')
+plt.ylabel('Ordered Values')
+plt.show()
